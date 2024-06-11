@@ -1,0 +1,38 @@
+﻿@page
+@model WeatherApp.Pages.WeatherForecast.WeatherForecastModel
+@{
+}
+<h1>
+    Some Weather
+</h1>
+@foreach (var timeseries in Model.ForecastData.Properties.Timeseries)
+{
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Weather Forecast for @timeseries.Time.ToString("dddd, MMMM dd yyyy HH:mm") Hours
+                </h5>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Temperature (°C)</th>
+                            <th>Wind Speed (m/s)</th>
+                            <th>Wind Direction (°)</th>
+                            <th>Air Pressure (hPa)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@timeseries.Data.Instant.Details.Air_temperature.ToString("F1")</td>
+                            <td>@timeseries.Data.Instant.Details.Wind_speed.ToString("F1")</td>
+                            <td>@timeseries.Data.Instant.Details.Wind_from_direction.ToString("F0")</td>
+                            <td>@timeseries.Data.Instant.Details.Air_pressure_at_sea_level.ToString("F1")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
