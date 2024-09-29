@@ -12,6 +12,11 @@ public class Forecast
         Properties Properties
     );
 
+    public record Geometry
+    (
+        string Type,
+        IReadOnlyList<double> Coordinates
+    );
     public record Properties(
         Meta Meta,
         IReadOnlyList<Timeseries> Timeseries
@@ -58,11 +63,6 @@ public class Forecast
         string Relative_humidity,
         string Wind_from_direction,
         string Wind_speed
-    );
-    public record Geometry
-    (
-        string Type,
-        IReadOnlyList<double> Coordinates
     );
 
     public record Meta
