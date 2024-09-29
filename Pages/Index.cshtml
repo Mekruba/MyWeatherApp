@@ -1,5 +1,6 @@
 ﻿@page
-@model IndexModel
+@model WeatherApp.Pages.IndexModel
+
 @{
     ViewData["Title"] = "Home page";
 }
@@ -8,3 +9,16 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h2>Weather App</h2>
+
+<!-- Form to input location -->
+<form method="post">
+    <div class="form-group">
+        <label for="location">Enter Location:</label>
+        <input type="text" id="location" name="Location" class="form-control" placeholder="Enter location name..." required />
+    </div>
+    <button type="submit" class="btn btn-primary">Get Weather</button>
+</form>
+
+
