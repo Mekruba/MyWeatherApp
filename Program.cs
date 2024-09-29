@@ -1,8 +1,15 @@
+using WeatherApp.Interfaces;
+using WeatherApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddHttpClient();
+builder.Services.AddMemoryCache();
+
+builder.Services.AddHttpClient<IGeocodingService, GeocodingService>();
+builder.Services.AddHttpClient<IWeatherForcastService, WeatherForecastService>();
+
 
 var app = builder.Build();
 
